@@ -12,7 +12,7 @@
             android:text="@string/productName"
             android:textStyle="bold"/>
         <TextView
-            android:id="@+id/label"
+            android:id="@+id/productName_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/productName"
