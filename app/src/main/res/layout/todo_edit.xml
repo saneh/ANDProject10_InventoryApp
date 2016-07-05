@@ -4,12 +4,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <Spinner
-        android:id="@+id/category"
+    <EditText
+        android:id="@+id/todo_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:entries="@array/priorities" >
-    </Spinner>
+        android:layout_weight="1"
+        android:hint="@string/todo_edit_summary"
+        android:imeOptions="actionNext" >
+    </EditText>
 
     <LinearLayout
         android:id="@+id/LinearLayout01"

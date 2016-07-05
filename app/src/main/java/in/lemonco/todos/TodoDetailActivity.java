@@ -22,7 +22,7 @@ import android.widget.Toast;
  * or to change an existing
  */
 public class TodoDetailActivity extends Activity {
-    private Spinner mCategory;
+    private EditText mCategory;
     private EditText mTitleText;
     private EditText mBodyText;
 
@@ -31,9 +31,9 @@ public class TodoDetailActivity extends Activity {
     @Override
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(R.layout.todo_edit);}
-/*
-        mCategory = (Spinner) findViewById(R.id.category);
+        setContentView(R.layout.todo_edit);
+
+        mCategory = (EditText) findViewById(R.id.todo_name);
         mTitleText = (EditText) findViewById(R.id.todo_edit_summary);
         mBodyText = (EditText) findViewById(R.id.todo_edit_description);
         Button confirmButton = (Button) findViewById(R.id.todo_edit_button);
@@ -66,27 +66,18 @@ public class TodoDetailActivity extends Activity {
     }
 
     private void fillData(Uri uri) {
-        String[] projection = { TodoTable.COLUMN_SUMMARY,
-                TodoTable.COLUMN_DESCRIPTION, TodoTable.COLUMN_CATEGORY };
+        String[] projection = { TodoTable.COLUMN_NAME,
+                TodoTable.COLUMN_SUPPLIER, TodoTable.COLUMN_IMAGE };
         Cursor cursor = getContentResolver().query(uri, projection, null, null,
                 null);
         if (cursor != null) {
             cursor.moveToFirst();
-            String category = cursor.getString(cursor
-                    .getColumnIndexOrThrow(TodoTable.COLUMN_CATEGORY));
-
-            for (int i = 0; i < mCategory.getCount(); i++) {
-
-                String s = (String) mCategory.getItemAtPosition(i);
-                if (s.equalsIgnoreCase(category)) {
-                    mCategory.setSelection(i);
-                }
-            }
-
+            mCategory.setText(cursor.getString(cursor
+                    .getColumnIndexOrThrow(TodoTable.COLUMN_NAME)));
             mTitleText.setText(cursor.getString(cursor
-                    .getColumnIndexOrThrow(TodoTable.COLUMN_SUMMARY)));
+                    .getColumnIndexOrThrow(TodoTable.COLUMN_SUPPLIER)));
             mBodyText.setText(cursor.getString(cursor
-                    .getColumnIndexOrThrow(TodoTable.COLUMN_DESCRIPTION)));
+                    .getColumnIndexOrThrow(TodoTable.COLUMN_IMAGE)));
 
             // always close the cursor
             cursor.close();
@@ -106,7 +97,7 @@ public class TodoDetailActivity extends Activity {
     }
 
     private void saveState() {
-        String category = (String) mCategory.getSelectedItem();
+        String category = mCategory.getText().toString();
         String summary = mTitleText.getText().toString();
         String description = mBodyText.getText().toString();
 
@@ -118,9 +109,9 @@ public class TodoDetailActivity extends Activity {
         }
 
         ContentValues values = new ContentValues();
-        values.put(TodoTable.COLUMN_CATEGORY, category);
-        values.put(TodoTable.COLUMN_SUMMARY, summary);
-        values.put(TodoTable.COLUMN_DESCRIPTION, description);
+        values.put(TodoTable.COLUMN_NAME, category);
+        values.put(TodoTable.COLUMN_SUPPLIER, summary);
+        values.put(TodoTable.COLUMN_IMAGE, description);
 
         if (todoUri == null) {
             // New todo
@@ -136,5 +127,5 @@ public class TodoDetailActivity extends Activity {
         Toast.makeText(TodoDetailActivity.this, "Please maintain a summary",
                 Toast.LENGTH_LONG).show();
     }
-*/
+
 }

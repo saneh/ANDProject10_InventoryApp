@@ -21,6 +21,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView.AdapterContextMenuInfo;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 
@@ -48,6 +49,15 @@ public class TodosOverviewActivity extends ListActivity implements
         this.getListView().setDividerHeight(2);
         fillData();
         registerForContextMenu(getListView());
+
+        Button addProductButton = (Button)findViewById(R.id.addProductButton);
+        addProductButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(TodosOverviewActivity.this,TodoDetailActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     // create the menu based on the XML defintion
