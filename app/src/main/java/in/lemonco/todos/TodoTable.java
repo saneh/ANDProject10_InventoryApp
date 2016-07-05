@@ -19,8 +19,7 @@ public class TodoTable {
             + COLUMN_ID + " integer primary key autoincrement, "
             + COLUMN_CATEGORY + " text not null, "
             + COLUMN_SUMMARY + " text not null,"
-            + COLUMN_DESCRIPTION
-            + " text not null"
+            + COLUMN_DESCRIPTION + " text not null"
             + ");";
 
     public static void onCreate(SQLiteDatabase database) {

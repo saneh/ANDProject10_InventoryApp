@@ -31,8 +31,8 @@ public class TodoDetailActivity extends Activity {
     @Override
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(R.layout.todo_edit);
-
+        setContentView(R.layout.todo_edit);}
+/*
         mCategory = (Spinner) findViewById(R.id.category);
         mTitleText = (EditText) findViewById(R.id.todo_edit_summary);
         mBodyText = (EditText) findViewById(R.id.todo_edit_description);
@@ -136,4 +136,5 @@ public class TodoDetailActivity extends Activity {
         Toast.makeText(TodoDetailActivity.this, "Please maintain a summary",
                 Toast.LENGTH_LONG).show();
     }
+*/
 }
