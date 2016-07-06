@@ -20,13 +20,15 @@ public class CustomSimpleCursorAdapter extends SimpleCursorAdapter {
     private int layout;
     private Cursor cr;
     private final LayoutInflater inflater;
+    TodosOverviewActivity activity;
 
-    public CustomSimpleCursorAdapter(Context context,int layout, Cursor c,String[] from,int[] to,int flags) {
+    public CustomSimpleCursorAdapter(Context context,int layout, Cursor c,String[] from,int[] to,int flags,TodosOverviewActivity todosOverviewActivity) {
         super(context,layout,c,from,to,flags);
         this.layout=layout;
         this.mContext = context;
         this.inflater=LayoutInflater.from(context);
         this.cr=c;
+        activity=todosOverviewActivity;
     }
 
     @Override
@@ -57,7 +59,11 @@ public class CustomSimpleCursorAdapter extends SimpleCursorAdapter {
         sellButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Log.i("sellBUtton","check");
+                activity.getContentResolver();
+
+                //karlo jo bhi karna h
             }
         });
 
