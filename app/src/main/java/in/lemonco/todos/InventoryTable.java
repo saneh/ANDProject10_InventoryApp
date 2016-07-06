@@ -3,7 +3,7 @@ package in.lemonco.todos;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-public class TodoTable {
+public class InventoryTable {
 
     // Database table
     public static final String TABLE_TODO = "todo";
@@ -23,7 +23,7 @@ public class TodoTable {
             + COLUMN_NAME + " text not null, "
             + COLUMN_PRICE + " integer not null,"
             + COLUMN_QUANTITY + " integer not null,"
-            + COLUMN_SALES + " integer not null,"
+            + COLUMN_SALES + " integer,"
             + COLUMN_SUPPLIER + " text not null, "
             + COLUMN_IMAGE + " text not null"
             + ");";
@@ -34,7 +34,7 @@ public class TodoTable {
 
     public static void onUpgrade(SQLiteDatabase database, int oldVersion,
                                  int newVersion) {
-        Log.w(TodoTable.class.getName(), "Upgrading database from version "
+        Log.w(InventoryTable.class.getName(), "Upgrading database from version "
                 + oldVersion + " to " + newVersion
                 + ", which will destroy all old data");
         database.execSQL("DROP TABLE IF EXISTS " + TABLE_TODO);

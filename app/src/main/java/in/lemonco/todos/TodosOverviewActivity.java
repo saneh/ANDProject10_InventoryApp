@@ -1,6 +1,5 @@
 package in.lemonco.todos;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -13,12 +12,9 @@ import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
 import android.net.Uri;
-import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
-import android.view.Menu;
 import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.Button;
@@ -45,7 +41,7 @@ public class TodosOverviewActivity extends ListActivity implements
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.todo_list);
+        setContentView(R.layout.inventory_list);
         this.getListView().setDividerHeight(2);
         fillData();
         registerForContextMenu(getListView());
@@ -60,32 +56,13 @@ public class TodosOverviewActivity extends ListActivity implements
         });
     }
 
-    // create the menu based on the XML defintion
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.listmenu, menu);
-        return true;
-    }
-
-    // Reaction to the menu selection
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.insert:
-                createTodo();
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
     @Override
     public boolean onContextItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case DELETE_ID:
                 AdapterContextMenuInfo info = (AdapterContextMenuInfo) item
                         .getMenuInfo();
-                Uri uri = Uri.parse(MyTodoContentProvider.CONTENT_URI + "/"
+                Uri uri = Uri.parse(MyInventoryContentProvider.CONTENT_URI + "/"
                         + info.id);
                 getContentResolver().delete(uri, null, null);
                 fillData();
@@ -104,8 +81,8 @@ public class TodosOverviewActivity extends ListActivity implements
     protected void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
         Intent i = new Intent(this, TodoDetailActivity.class);
-        Uri todoUri = Uri.parse(MyTodoContentProvider.CONTENT_URI + "/" + id);
-        i.putExtra(MyTodoContentProvider.CONTENT_ITEM_TYPE, todoUri);
+        Uri todoUri = Uri.parse(MyInventoryContentProvider.CONTENT_URI + "/" + id);
+        i.putExtra(MyInventoryContentProvider.CONTENT_ITEM_TYPE, todoUri);
 
         startActivity(i);
     }
@@ -116,12 +93,12 @@ public class TodosOverviewActivity extends ListActivity implements
 
         // Fields from the database (projection)
         // Must include the _id column for the adapter to work
-        String[] from = new String[] {TodoTable.COLUMN_NAME,TodoTable.COLUMN_PRICE,TodoTable.COLUMN_QUANTITY,TodoTable.COLUMN_SALES};
+        String[] from = new String[] {InventoryTable.COLUMN_NAME, InventoryTable.COLUMN_PRICE, InventoryTable.COLUMN_QUANTITY, InventoryTable.COLUMN_SALES};
         // Fields on the UI to which we map
         int[] to = new int[] {R.id.productName_value,R.id.price_value,R.id.availableInventory_value,R.id.unitsSold_value,};
 
         getLoaderManager().initLoader(0, null, this);
-        adapter = new SimpleCursorAdapter(this, R.layout.todo_row, null, from, to, 0);
+        adapter = new SimpleCursorAdapter(this, R.layout.inventory_row, null, from, to, 0);
         Log.i("Adapter check",adapter.toString());
 
         setListAdapter(adapter);
@@ -137,9 +114,9 @@ public class TodosOverviewActivity extends ListActivity implements
     // creates a new loader after the initLoader () call
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-        String[] projection = { TodoTable.COLUMN_ID, TodoTable.COLUMN_NAME,TodoTable.COLUMN_PRICE,TodoTable.COLUMN_QUANTITY,TodoTable.COLUMN_SALES };
+        String[] projection = { InventoryTable.COLUMN_ID, InventoryTable.COLUMN_NAME, InventoryTable.COLUMN_PRICE, InventoryTable.COLUMN_QUANTITY, InventoryTable.COLUMN_SALES };
         CursorLoader cursorLoader = new CursorLoader(this,
-                MyTodoContentProvider.CONTENT_URI, projection, null, null, null);
+                MyInventoryContentProvider.CONTENT_URI, projection, null, null, null);
         return cursorLoader;
     }
 

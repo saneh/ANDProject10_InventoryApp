@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="8dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:text="@string/sell"
+            android:id="@+id/sellButton"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/delete"
+            android:id="@+id/deleteButton"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginLeft="32dp"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/Name"
+            android:text="@string/productName"
+            style="@style/tag_text_style"
+             />
+
+        <EditText
+            android:id="@+id/productName_edit"
+            style="@style/detail_edit_text_style"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/inventory"
+            android:text="@string/availableInventory"
+            style="@style/tag_text_style"/>
+
+        <EditText
+            android:id="@+id/availableInventory_edit"
+            style="@style/detail_edit_text_style"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/priceText"
+            android:text="@string/price"
+            style="@style/tag_text_style"/>
+
+        <EditText
+            android:id="@+id/price_edit"
+            style="@style/detail_edit_text_style"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/sales"
+            android:text="@string/unitsSold"
+            style="@style/tag_text_style"/>
+
+        <EditText
+            android:id="@+id/sales_edit"
+            style="@style/detail_edit_text_style"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/supplier"
+            android:text="@string/supplier"
+            style="@style/tag_text_style"/>
+
+        <EditText
+            android:id="@+id/supplier_edit"
+            style="@style/detail_edit_text_style"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/image"
+            android:text="@string/image"
+            style="@style/tag_text_style"/>
+
+        <EditText
+            android:id="@+id/image_edit"
+            style="@style/detail_edit_text_style"/>
+    </LinearLayout>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/updateButton"
+        android:text="@string/update"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginBottom="10dp"
+        android:textStyle="bold"
+        android:textSize="16sp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/receive_shipment"
+            android:id="@+id/receive_shipment_button"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/placeShipmentOrder"
+            android:id="@+id/orderShipmentButton"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

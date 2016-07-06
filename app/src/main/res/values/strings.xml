@@ -1,24 +1,28 @@
 <resources>
-    <string name="app_name">todos</string>
+    <string name="app_name">MANAGE INVENTORY</string>
 
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_todo_detail">TodoDetailActivity</string>
-    <string name="hello">Hello World, Todo!</string>
-    <string name="no_products">Currently there are no Products added. Click on "Add Products" below to add items</string>
+    <string name="title_activity_todo_detail">PRODUCT DETAILS</string>
+    <string name="no_products">Currently there are no Products added. Click on \"Add Product\" below to add items</string>
     <string name="menu_insert">Add Item</string>
-    <string name="todo_summary">Summary</string>
     <string name="todo_description">Delete Todo</string>
-    <string name="todo_edit_summary">Summary</string>
     <string name="todo_edit_description">Description</string>
     <string name="todo_edit_confirm">Confirm</string>
     <string name="addProductButton">ADD PRODUCT</string>
-    <string name="productName">Product Name:</string>
-    <string name="availableInventory">Available Inv.:</string>
+    <string name="productName">Product Name: </string>
+    <string name="availableInventory">Available Inv.: </string>
     <string name="price">Price:</string>
-    <string name="unitsSold">unitsSold</string>
+    <string name="unitsSold">Units Sold: </string>
     <string name="title_activity_product_detail">ProductDetailActivity</string>
     <string name="menu_delete">Delete Todo</string>
+    <string name="supplier">Supplier: </string>
+    <string name="image">Image: </string>
+    <string name="update">UPDATE</string>
+    <string name="receive_shipment">RECEIVE SHIPMENT</string>
+    <string name="placeShipmentOrder">PLACE SHIPMENT ORDER</string>
+    <string name="delete">DELETE</string>
+    <string name="sell">SELL</string>
+    <string name="home_banner">Inventory Snapshot</string>
 
 
 </resources>
