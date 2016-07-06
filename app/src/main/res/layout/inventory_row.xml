@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="4dp"
-    android:background="@android:color/white">
+    android:descendantFocusability="blocksDescendants">
     <RelativeLayout
+        android:id="@+id/row1"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true">
         <TextView
             android:id="@+id/productName"
             android:layout_width="wrap_content"
@@ -21,8 +22,11 @@
             android:layout_marginLeft="6dp"/>
     </RelativeLayout>
     <RelativeLayout
+        android:id="@+id/row2"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/row1">
         <TextView
             android:id="@+id/availableInventory"
             android:layout_width="wrap_content"
@@ -37,8 +41,11 @@
             android:layout_marginLeft="6dp"/>
     </RelativeLayout>
     <RelativeLayout
+        android:id="@+id/row3"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/row2">
         <TextView
             android:id="@+id/price"
             android:layout_width="wrap_content"
@@ -53,8 +60,11 @@
             android:layout_marginLeft="6dp"/>
     </RelativeLayout>
     <RelativeLayout
+        android:id="@+id/row4"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/row3">
         <TextView
             android:id="@+id/unitsSold"
             android:layout_width="wrap_content"
@@ -69,4 +79,14 @@
             android:layout_marginLeft="6dp"/>
     </RelativeLayout>
 
-</LinearLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sell"
+        android:id="@+id/sellButton"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="center"
+        android:layout_margin="16dp"/>
+</RelativeLayout>

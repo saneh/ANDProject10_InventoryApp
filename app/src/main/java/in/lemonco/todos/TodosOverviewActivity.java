@@ -97,7 +97,7 @@ public class TodosOverviewActivity extends ListActivity implements
         int[] to = new int[] {R.id.productName_value,R.id.price_value,R.id.availableInventory_value,R.id.unitsSold_value,};
 
         getLoaderManager().initLoader(0, null, this);
-        adapter = new SimpleCursorAdapter(this, R.layout.inventory_row, null, from, to, 0);
+        adapter = new CustomSimpleCursorAdapter(this, R.layout.inventory_row, null, from, to, 0);
         Log.i("Adapter check",adapter.toString());
 
         setListAdapter(adapter);
