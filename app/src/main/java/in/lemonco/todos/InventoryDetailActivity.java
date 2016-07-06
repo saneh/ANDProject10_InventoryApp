@@ -20,7 +20,7 @@ import android.widget.Toast;
  * This class allows to edit a detail view of the inventory.
  * Also has multiple functions like Sell a product, palce shipment order, receive shipment, delete product, update product
  */
-public class TodoDetailActivity extends Activity {
+public class InventoryDetailActivity extends Activity {
     private EditText mProductName;
     private EditText mPrice;
     private EditText mQuantity;
@@ -103,7 +103,7 @@ public class TodoDetailActivity extends Activity {
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new AlertDialog.Builder(TodoDetailActivity.this)
+                new AlertDialog.Builder(InventoryDetailActivity.this)
                         .setTitle("Delete entry")
                         .setMessage("Are you sure you want to delete this entry?")
                         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
@@ -141,11 +141,11 @@ public class TodoDetailActivity extends Activity {
         receiveShipmentButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(TodoDetailActivity.this);
+                AlertDialog.Builder builder = new AlertDialog.Builder(InventoryDetailActivity.this);
                 builder.setTitle("Enter Quantity Received");
 
                 // Set up the input
-                final EditText input = new EditText(TodoDetailActivity.this);
+                final EditText input = new EditText(InventoryDetailActivity.this);
                 // Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
                 input.setInputType(InputType.TYPE_CLASS_NUMBER);
                 builder.setView(input);
@@ -247,29 +247,30 @@ public class TodoDetailActivity extends Activity {
     }
     //methods to validate input text
     private void makeToastProductName(){
-        Toast.makeText(TodoDetailActivity.this, "Please enter product name",
+        Toast.makeText(InventoryDetailActivity.this, "Please enter product name",
                 Toast.LENGTH_LONG).show();
     }
     private void makeToastPrice(){
-        Toast.makeText(TodoDetailActivity.this, "Please enter price",
+        Toast.makeText(InventoryDetailActivity.this, "Please enter price",
                 Toast.LENGTH_LONG).show();
     }
     private void makeToastQuantity(){
-        Toast.makeText(TodoDetailActivity.this, "Please enter quantity.",
+        Toast.makeText(InventoryDetailActivity.this, "Please enter quantity.",
                 Toast.LENGTH_LONG).show();
     }
     private void makeToastSupplier(){
-        Toast.makeText(TodoDetailActivity.this, "Please enter supplier e-mail.",
+        Toast.makeText(InventoryDetailActivity.this, "Please enter supplier e-mail.",
                 Toast.LENGTH_LONG).show();
     }
     private void makeToastImage(){
-        Toast.makeText(TodoDetailActivity.this, "Please enter product image.",
+        Toast.makeText(InventoryDetailActivity.this, "Please enter product image.",
                 Toast.LENGTH_LONG).show();
     }
     private void makeToastSales(){
-        Toast.makeText(TodoDetailActivity.this, "Please enter a valid sales figure. For no sales input 0",
+        Toast.makeText(InventoryDetailActivity.this, "Please enter a valid sales figure. For no sales input 0",
                 Toast.LENGTH_LONG).show();
     }
+
 
 
 

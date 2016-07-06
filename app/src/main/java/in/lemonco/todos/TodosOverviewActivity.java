@@ -14,7 +14,6 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
-import android.view.MenuInflater;
 import android.view.View;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.Button;
@@ -50,7 +49,7 @@ public class TodosOverviewActivity extends ListActivity implements
         addProductButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(TodosOverviewActivity.this,TodoDetailActivity.class);
+                Intent intent = new Intent(TodosOverviewActivity.this,InventoryDetailActivity.class);
                 startActivity(intent);
             }
         });
@@ -72,7 +71,7 @@ public class TodosOverviewActivity extends ListActivity implements
     }
 
     private void createTodo() {
-        Intent i = new Intent(this, TodoDetailActivity.class);
+        Intent i = new Intent(this, InventoryDetailActivity.class);
         startActivity(i);
     }
 
@@ -80,7 +79,7 @@ public class TodosOverviewActivity extends ListActivity implements
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
-        Intent i = new Intent(this, TodoDetailActivity.class);
+        Intent i = new Intent(this, InventoryDetailActivity.class);
         Uri todoUri = Uri.parse(MyInventoryContentProvider.CONTENT_URI + "/" + id);
         i.putExtra(MyInventoryContentProvider.CONTENT_ITEM_TYPE, todoUri);
 

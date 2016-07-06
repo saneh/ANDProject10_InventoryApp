@@ -25,7 +25,7 @@ public class InventoryTable {
             + COLUMN_QUANTITY + " integer not null,"
             + COLUMN_SALES + " integer,"
             + COLUMN_SUPPLIER + " text not null, "
-            + COLUMN_IMAGE + " text not null"
+            + COLUMN_IMAGE + " BLOB"
             + ");";
 
     public static void onCreate(SQLiteDatabase database) {
